@@ -1,0 +1,38 @@
+body{
+    background-image: url("ww.jpg");
+    background-color: rgb(185, 180, 189);
+}
+h1{
+    font-size: 130px;
+    margin-top: 100px;
+    margin-bottom: 90px;
+    text-align: center;
+    text-shadow: rgb(75, 68, 82);
+    color: rgb(175, 206, 247);
+    text-decoration-style: solid;
+}
+div {
+    background-image: url("ww.jpg");
+    width: 300px;
+    border: 15px solid rgba(69, 121, 126, 0.993);
+    padding: 50px;
+    margin: auto;
+}
+input[type=submit], button{
+    background-color: rgba(156, 205, 245, 0.993);
+    color: rgb(7, 20, 31);
+}
+label[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 0px 0px;
+    height: 30px;
+    width: auto;
+    box-sizing: border-box;
+}
+.txt {
+    color: rgba(156, 205, 245, 0.993);
+}
+.l{
+    margin-left: 23px;
+}
