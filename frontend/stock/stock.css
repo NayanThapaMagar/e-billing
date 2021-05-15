@@ -1,0 +1,40 @@
+h1{
+    font-size:45px;
+    text-align: center;
+    margin-right: 600px;
+    color: rgba(43, 29, 24, 0.829);
+}
+body{
+    background: rgba(85, 28, 47, 0);
+}
+     table#table1,th,td {
+    border:2px solid black;
+    border-collapse: collapse;
+    background-color: rgba(181, 192, 186, 0.39);
+    margin:auto;
+}
+button{
+    height:30px;
+    width:80px;
+    position:fixed;
+    top: 0px;
+    margin-top: 120px;
+    margin-left: 960px;
+    border-radius: 15px;
+    font-weight: bold;
+    box-shadow: white;
+}
+
+.input input{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+}
+ table#table2{
+     margin: auto;
+     border-collapse: collapse;
+ }
+ .sn{
+     text-align: center;
+     font-weight: bold;
+ }
