@@ -155,6 +155,9 @@
             <div class="bold"> 
     
                 <span style="margin-left: 380px; " id="total">Total: </span><br>
+                
+                $conn->prepare("INSERT INTO `invoice_detials` (`Total`) VALUES("<?php echo $Total ?>");
+                
                 <br>
                 
                 <span style="margin-left: 380px; " id="vat"> VAT: 13% </span><br>
