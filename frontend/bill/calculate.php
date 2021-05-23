@@ -25,12 +25,10 @@ function autofill($prdtid,$prdtname,$prdtrate,$prdtqty,$prdtamount){
     </td>
 
     <td> 
-    
-         
         <select data-placeholder="Select Product_ID" id="<?php echo $GLOBALS['id']; ?>" style="width:100%" onchange="productid(this.value,this.id)"> 
         <option>----select----</option>
             <?php 
-                select('Product_ID');
+                select('Product_ID','product_detials');
             ?>
         </select> 
     </td>

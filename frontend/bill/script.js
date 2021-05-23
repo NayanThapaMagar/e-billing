@@ -1,3 +1,12 @@
+
+
+
+
+
+
+
+
+
 let i=1;
 let number_of_rows = 1;
 const table = document.querySelector("table");
@@ -178,7 +187,4 @@ function PAmount() {
     pAmount=parseFloat(document.getElementById('pAmount').value);
     dAmount = gTotal-pAmount;
     document.getElementById('dAmount').innerText = `Due Amount: ${dAmount}`;
-}
-function CId() {
-  
 }
