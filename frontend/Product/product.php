@@ -24,6 +24,7 @@
     <div class="head">
         <h1 class="heading">PRODUCT<br>PANNEL</h1> 
     </div>
+    <!--search-->
     <div class="search">
         <h2 class="rate">Rate List</h2>
         <div class="searchbox">
@@ -34,7 +35,7 @@
                         <th><label for="product_ID">Product ID</label></th>
                         <th rowspan="2" ><input type="submit" class="s" name="submit" value="Search" ></th>
                         <th rowspan="2" >
-                            <form method="post" action="http://127.0.0.1/frontend/product/product.php">
+                            <form method="post" action="http://127.0.0.1/frontend/product/aproduct.php">
                                 <input type="submit" class="s" value="Chancel" >
                             </form>
                          </th>
@@ -95,6 +96,7 @@
                             }
                         }
                     }
+                    // displaying all items if search button is not set
                     else {                
                         $sql = "SELECT Product_Name, Product_ID, Rate FROM product_detials";
                         $result = $conn->query($sql);
@@ -123,7 +125,8 @@
             </table>
         </div>
     </div>
-    <form method="post" action="http://127.0.0.1/backend/product.php">
+    <!--add product-->
+    <form method="post" action="http://127.0.0.1/backend/aproduct.php">
         <div class="addproduct">
             <div class="udp">
                 <label class="ts" for="pname">Product Name: </label>
@@ -148,6 +151,7 @@
             </div>
         </div>
     </form>
+      <!--update product-->
     <form method="post" action="http://127.0.0.1/backend/uproduct.php">
         <div class="uprate">
             <div class="udp">
@@ -175,6 +179,7 @@
             </div>
         </div>
     </form>
+      <!--delete product-->
     <div class="uprate">
         <form class="inline" method="post" action="http://127.0.0.1/backend/dproduct.php">
             <div class="udp">
