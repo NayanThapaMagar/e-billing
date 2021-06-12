@@ -1,12 +1,17 @@
 
 
 
-<script type="text/javascript">
-var jvalue = 'this is nayan here';
+<script 
+type="text/javascript">
+// var jvalue = document.getElementById('CNo').value;
 
-<?php $abc = "<script>document.write(jvalue)</script>"?>   
+<?php 
+// $abc = "<script>document.write(jvalue)</script>"
+?>   
 </script>
-<?php echo  'php_'.$abc;?>
+<?php 
+// echo  'php_'.$abc;
+?>
 
 
 
@@ -44,9 +49,9 @@ function total() {
 //         } -->
 
 <?php
-$(document).ready(
-    function () {
-        $('#rate').select2();
-    }
-);
+// $(document).ready(
+//     function () {
+//         $('#rate').select2();
+//     }
+// );
 ?>

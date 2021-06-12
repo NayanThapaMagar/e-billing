@@ -1,20 +1,14 @@
 
 
 
-
-
-
-
-
-
 let i=1;
 let number_of_rows = 1;
 const table = document.querySelector("table");
 const options = Array.from(document.getElementById("1").options);
     const optionsTag = options.reduce(
-      (option, elem) =>
-        option +
-        `<option value="${elem.value}" data-select2-id="${elem.text}">${elem.text}</option>`,
+      function(option, elem){
+        return option + `<option value="${elem.value}" data-select2-id="${elem.text}">${elem.text}</option>`
+      },
     ''
     );
 const addField = () => {
@@ -42,7 +36,6 @@ const addField = () => {
       <span
         class=""
         id="name${number_of_rows}"
-        data-placeholder="Select a Product"
         style="width: 100%"
         onchange="product(this.value)">
       </span>
@@ -72,10 +65,6 @@ const addField = () => {
         onchange="total(this.value)">
       </span>
     </td>`;
-    // console.log(i);     
-    // console.log(j);
-    // getSearchField();
-    // calculateTotal();
 table.appendChild(row);
   };
 
@@ -128,10 +117,10 @@ table.appendChild(row);
     }
     document.getElementById(`amount${id}`).innerHTML = 0;
     document.getElementById(`qty-${id}`).value = 0;
-    document.getElementById('total').innerText = `Total: ${0}`;
-    document.getElementById('gTotal').innerText = `Grand Total: ${0}`;
+    document.getElementById('total').innerText = 0;
+    document.getElementById('gTotal').innerText = 0;
     document.getElementById('pAmount').value = 0;
-    document.getElementById('dAmount').innerText = `Due Amount: ${0}`; 
+    document.getElementById('dAmount').innerText =0; 
     const ajaxreq0 = new XMLHttpRequest();
     ajaxreq0.open('GET','http://127.0.0.1/frontend/bill/prdtid.php?prdtid='+data,'TRUE');
     ajaxreq0.send();  
@@ -165,7 +154,7 @@ function quantity(param) {
     document.getElementById(`amount${id}`).innerHTML = z; 
     calculateTotal();
     document.getElementById('pAmount').value = 0;
-    document.getElementById('dAmount').innerText = `Due Amount: ${0}`; 
+    document.getElementById('dAmount').innerText = 0; 
 }    
 let gTotal=0;
 function calculateTotal() {
@@ -174,17 +163,51 @@ for(j=1;j<=i;j++){
     const s=parseFloat(document.getElementById(`amount${j}`).innerText);
     sum=sum+s;
 }
-document.getElementById('total').innerText = `Total: ${sum}`;
+document.getElementById('total').innerText = sum;
 vatAmount=(13/100)*sum;
 sum=sum+vatAmount;
 discAmount=(5/100)*sum;
 gTotal=sum-discAmount;
-document.getElementById('gTotal').innerText = `Grand Total: ${gTotal}`;
+document.getElementById('gTotal').innerText = gTotal;
 }
 
 function PAmount() {
     let dAmount=pAmount=0;
     pAmount=parseFloat(document.getElementById('pAmount').value);
     dAmount = gTotal-pAmount;
-    document.getElementById('dAmount').innerText = `Due Amount: ${dAmount}`;
+    document.getElementById('dAmount').innerText = dAmount;
+    // let invoice = {
+    // let dueAmount = "dAmount"
+    // customerId,
+    // contactNo,
+    // customerName,
+    // customerAddress,
+    // sDate,
+    // total,
+    // deliveredBy,
+    // gTotal,
+    // checkedBy,
+    // paidAmount,
+    // dueAmount,
+    // } 
+    // const fetchOptions = {
+    //   method: "POST",
+    //   headers: {
+    //   "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(invoice),
+    //   value: JSON.stringify(invoice),
+    // }
+    // fetch("http://127.0.0.1/frontend/bill/invoice.php?", fetchOptions)
+    // console.log(fetchOptions.body);
+    // document.getElementById('dAmount').innerText;
+    // document.getElementById('dAmount').innerText;
+    // document.getElementById('dAmount').innerText;
+    // document.getElementById('dAmount').innerText;
 }
+
+
+
+
+
+

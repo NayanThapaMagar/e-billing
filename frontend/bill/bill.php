@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>project</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/4.0.2/autosize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script> -->
     <?php 
     
     include 'calculate.php';
@@ -15,10 +18,43 @@
 </head>
 <body>
     <h1>COMPANY NAME : E-HARDWARE</h1>
+    <script type="text/javascript">
+        function prints() {
+            // let customerId = document.getElementById('costId').innerText ;
+            // // let contactNo = document.getElementById('CNo').value;
+            // let customerName = document.getElementById('costName').innerText ;
+            // // let customerAddress = document.getElementById('costAddress').innerText ;
+            // // let sDate = document.getElementById('sDate').innerText ;
+            // // let total = document.getElementById('total').innerText;
+            // // let deliveredBy = document.getElementById('d_By').value;
+            // // let gTotal = document.getElementById('gTotal').innerText;
+            // // let checkedBy = document.getElementById('c_By').value;
+            // // let paidAmount = document.getElementById('pAmount').value;
+            // // let dueAmount = document.getElementById('dAmount').innerText;
+            // var emp1 = {};
+            // emp1.id = customerId;
+            // emp1.name = customerName;  
 
+            // console.log(emp1);
+
+            // $.ajax({
+            // URL:"invoice.php",
+            // method: "post",
+            // data: { emp1 : JSON.stringify(emp1)},
+            // success: function(res){
+            //     console.log(res);
+            // }
+            // })
+          
+        
+        }
+    </script>
     <main class="border">
 
-        <form class="input" method="GET" action="">
+        <form class="input" method="POST" 
+        >
+        <!-- action="http://127.0.0.1/frontend/bill/invoice.php" -->
+            
             <div>
                 <div class="margin">
                     <label style="margin-left:33px;" for="CNo">Contact no:</label>
@@ -85,8 +121,7 @@
                             //         document.getElementById('').innerHTML = ajaxreq3.responseText;
                             //     }                                                                          
                             // } 
-                
-
+                         
                         }
                     
                     </script> 
@@ -100,7 +135,7 @@
                     
                 <div class="margin">
                 <label style="margin-left:40px" for="name">Name:</label>
-                <span id="costName"></span>
+                <span id="costName" name="costName"></span>
                     <!-- <input type="text" placeholder="Enter your name" minlength="6" maxlength="20" id="name" > -->
 
                     <label style="margin-left:46px;" for="address">Address:</label>
@@ -115,7 +150,16 @@
                     <span id="sDate"><?php echo date("Y-m-d") ?></span>
 
                     <label style="margin-left:80px" for="bNo">Bill No:</label>
-                    <span id="bNo">1</span>
+                    <span id="bNo">
+                    <?php
+                    // include 'connectToInvoice.php' 
+                    // $mysql = "SELECT * FROM invoice_detialsp";
+                    // $result = $conn->query($mysql);
+                    // echo ($mysql -> affected_rows+1);
+                    // $conn->close(); 
+                    echo "1";
+                    ?>
+                    </span>
                     <!-- <input type="text" placeholder="Enter day"  id="day"> -->
                 </div>
                 <?php $conn->close();?>
@@ -153,53 +197,65 @@
 
             <br>
             <div class="bold"> 
-    
-                <span style="margin-left: 380px; " id="total">Total: </span><br>
+                <label style="margin-left: 380px; " for="total">Total: </label>
+                <span  id="total" name="total"></span><br>
                 <br>
                 
                 <span style="margin-left: 380px; " id="vat"> VAT: 13% </span><br>
                 <br>
                 <span style="margin-left:349px;" id="discount"> Discount: 5% </span><br>
                 <br>
-                <span style="margin-left: 4px;">Delivery By: </span> 
-                <span style="margin-left:72px;" id="gTotal">Grand Total: </span>
+                <span style="margin-left: 4px;">Delivery By:   <input type="text" id="d_By" name="d_By" required> </span> 
+                <label style="margin-left:72px;" for="gTotal">Grand Total: </label>
+                <span  id="gTotal" name="gTotal"></span>
 
                 <br>
                 <br>
 
-                <span style="margin-left: 2px;">Checked By: </span>
-                <span style="margin-left:40px; ">Paid amount: <input type="text" id="pAmount" oninput="PAmount()"></span> <br><br>
+                <span style="margin-left: 2px;">Checked By:<input type="text" id="c_By" name="c_By" required> </span>
+                <span style="margin-left:40px; ">Paid amount: <input type="text" id="pAmount" name="pAmount" oninput="PAmount()" required></span> <br><br>
                 
                 <span> Received By: <input type="text" > </span>
-                <span style="margin-left:40px;" id="dAmount">Due amount: </span><br><br>
+                <label style="margin-left:40px;" for="dAmount">Due amount: </label>
+                <span  id="dAmount" name="dAmount"></span><br><br>
             </div>
 
         
             <div class="bold">
                 <span style="line-height: 80px;">Authorized Signature: </span>     
-                <!-- <span style="margin-left: 70px;">Remarks: <input type="text"></span> <hr color="black" width="150px">   -->
+                <span style="margin-left: 70px;">Remarks: <input type="text"></span> <hr color="black" width="150px">  
 
             </div>
             <br>
             <br>
+           
+           
+        </form>
+        <button onclick="prints()">Save</button>
 
-            </form>
-            <form method="GET" action="invoice.php">
-            <input type="text" id="d_By" required>
-            <input type="text" id="c_By" required>
-            <input type="text" id="i" required>
-            <input type="text" id="j" required>
-            <input type="text" id="k" required>
-            <input type="text" id="l" required>
-            <input type="text" id="m" required>
-            <input type="text" id="n" required>
-            <input type="text" id="o" required>
-            <input type="text" id="p" required>
-            <input type="text" id="q" required>
-            <input type="text" id="r" required>
-            <input type="Submit" value=" Print ">
-            </form>
+        
     </main>
     <script src="./script.js" defer></script>
 </body>
 </html>
+
+        <!-- <script type="text/javascript">
+        let invoice = {};
+        invoice.customerId = "hello";
+        invoice.contactNo = "y";
+        invoice.customerName = "p";
+        invoice.customerAddress = "e";
+        invoice.sDate = "q";
+        invoice.total = "w";
+        invoice.deliveredBy = "q";
+        invoice.gTotal = "d";
+        invoice.checkedBy = "s";
+        invoice.paidAmount = "a";
+        $.ajax({
+        URL:"invoice.php",
+        method: "POST",
+        data: { invoice : JSON.stringify(invoice) },
+        success: function(res){
+        console.log(res);
+        }
+        }) -->
