@@ -14,11 +14,4 @@ if($conn->connect_error){
     die("Sorry we failed to connect: ". $conn->connect_error);
 }
 
-
-
-
-
-
-
-$conn->close();
-?>
+$conn->close(); ?>
